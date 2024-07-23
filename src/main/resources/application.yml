@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: inventory-app-service
+  cloud:
+    config:
+      import-check:
+        enabled: false
+  inventory:
+    password: ${inventory-app-secret}
+
+server:
+  port: 80
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, refresh
