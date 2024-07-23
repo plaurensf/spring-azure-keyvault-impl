@@ -5,11 +5,14 @@ spring:
     config:
       import-check:
         enabled: false
+    azure:
+      keyvault:
+        secret.property-sources[0].endpoint: ${key-vault-endpoint}
   inventory:
     password: ${inventory-app-secret}
 
 server:
-  port: 80
+  port: 8096
 management:
   endpoints:
     web:

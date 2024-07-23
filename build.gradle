@@ -1,11 +1,11 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.2.5'
+    id 'org.springframework.boot' version '3.2.0'
     id 'io.spring.dependency-management' version '1.1.4'
 }
 
-group = 'com.example'
-version = '0.0.1'
+group = 'com.inventory'
+version = '1'
 
 java {
     sourceCompatibility = '17'
@@ -23,9 +23,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.azure.spring:spring-cloud-azure-starter:5.14.0'
-    implementation 'com.azure.spring:spring-cloud-azure-starter-keyvault:5.14.0'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'com.azure.spring:spring-cloud-azure-starter-keyvault:5.14.0'
     implementation 'org.springframework.cloud:spring-cloud-starter-config:4.1.3'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
