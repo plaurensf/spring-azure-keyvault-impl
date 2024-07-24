@@ -5,6 +5,10 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+#terraform
+terraform/.terraform/**
+terraform/.terraform.lock.hcl
+
 ### STS ###
 .apt_generated
 .classpath
