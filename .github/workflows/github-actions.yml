@@ -20,6 +20,7 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag iventory-app:$(date +%s)
   test-application:
+    needs: build-docker-image
     runs-on: ubuntu-latest
     steps:
       - name: Set up JDK 17
@@ -32,6 +33,7 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build
   dependency-submission:
+    needs: test-application
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -46,6 +48,7 @@ jobs:
       - name: Generate and submit dependency graph
         uses: gradle/actions/dependency-submission@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
   publish:
+    needs: dependency-submission
     runs-on: ubuntu-latest
     permissions:
       packages: write
