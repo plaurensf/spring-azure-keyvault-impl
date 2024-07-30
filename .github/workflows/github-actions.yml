@@ -27,7 +27,7 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag iventory-app:$(date +%s)
   publish:
-    needs: dependency-submission
+    needs: build-docker-image
     runs-on: ubuntu-latest
     permissions:
       packages: write
